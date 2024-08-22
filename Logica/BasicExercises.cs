@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    internal class BasicExercises
+    public class BasicExercises
     {
         
     }

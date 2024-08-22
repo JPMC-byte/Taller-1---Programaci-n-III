@@ -44,12 +44,12 @@ namespace Presentación
 
             if (!Asc)
             {
-                Console.WriteLine("La lista se encuentra ordenada ascendentemente";
+                Console.WriteLine("La lista se encuentra ordenada ascendentemente");
             } else if (Desc) {
-                Console.WriteLine("La lista se encuentra ordenada descendentemente";
+                Console.WriteLine("La lista se encuentra ordenada descendentemente");
             } else 
             {
-                Console.WriteLine("La lista no se encuentra ordenada";
+                Console.WriteLine("La lista no se encuentra ordenada");
             }
 
 

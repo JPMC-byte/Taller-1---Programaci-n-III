@@ -7,7 +7,7 @@ using Logica;
 
 namespace Presentación
 {
-    public class Menus
+    internal class Menus
     {
         public void MainMenu() {
             int Opt;
