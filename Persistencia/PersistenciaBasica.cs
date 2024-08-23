@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    public class PersistenciaUsuario
+    public class PersistenciaBasica
     {
-        private List<(String usuario, String contraseña)> usuarios;
-
-        public PersistenciaUsuario()
+        public bool PersistenciaUsuario(String usuario, String contraseña)
         {
-            usuarios = new List<(String usuario, String contraseña)>
+            List<(String usuario, String contraseña)> usuarios = new List<(String usuario, String contraseña)>
             {
                 ("usuario1", "contraseña1"),
                 ("usuario2", "contraseña2"),
                 ("admin", "admin123")
             };
-        }
-        public bool VerificarCredenciales(String usuario, String contraseña)
-        {
+
             return usuarios.Any(u => u.usuario == usuario && u.contraseña == contraseña);
         }
+
     }
 }

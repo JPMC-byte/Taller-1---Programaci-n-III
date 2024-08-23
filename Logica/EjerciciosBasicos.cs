@@ -42,8 +42,8 @@ namespace Logica
 
         public String LogicaAutentificacionUsuario(String Usuario, String Contraseña)
         {
-            PersistenciaUsuario persistenciaUsuario = new PersistenciaUsuario();
-            bool Sesion = persistenciaUsuario.VerificarCredenciales(Usuario, Contraseña);
+            PersistenciaBasica persistenciaUsuario = new PersistenciaBasica();
+            bool Sesion = persistenciaUsuario.PersistenciaUsuario(Usuario,Contraseña);
 
 
             if (Sesion)
@@ -53,6 +53,70 @@ namespace Logica
             }else
             {
                 return "Error - Digitos erroneos - Usuario y/o contraseña incorrecta.";
+            }
+        }
+
+        public double LogicaRaizCuadrada(double Numero)
+        {
+            double Aproximado = Numero / 2.0;
+            double Tolerancia = 0.00001;
+            double MejorAproximado;
+            bool Verificador = true;
+
+            while (Verificador)
+            {
+                MejorAproximado = (Aproximado + Numero / Aproximado) / 2.0;
+                if (MejorAproximado - Aproximado < Tolerancia && MejorAproximado - Aproximado > -Tolerancia)
+                {
+                    Verificador = false;
+                } 
+                Aproximado = MejorAproximado;
+
+            }
+            return Aproximado;
+        }
+
+        public (string Resultado, string Opcion) LogicaPiedraPapelTijeras(int Respuesta)
+        {
+            Random rand = new Random();
+            List<String> Opciones = new List<String> { "Piedra", "Papel", "Tijeras"};
+            int OpcionMaquina = rand.Next(Opciones.Count);
+            String Resultado;
+
+            if (Respuesta == OpcionMaquina)
+            {
+                Resultado = "Empate";
+            }
+            else
+            {
+                if ((Respuesta == 0 && OpcionMaquina == 2) || (Respuesta == 1 && OpcionMaquina == 0) || (Respuesta == 2 && OpcionMaquina == 1))
+                {
+                    Resultado = "Ganaste";
+                }
+                else
+                {
+                    Resultado = "Perdiste";
+                }
+            }
+            return (Resultado, Opciones[OpcionMaquina]);
+
+        }
+
+        public String LogicaPalindromo(String Texto)
+        {
+            String TextoInverso;
+            Texto.ToLower().Trim();
+            char[] Caracteres = Texto.ToCharArray();
+            Array.Reverse(Caracteres);
+            TextoInverso = new String(Caracteres);
+
+            if (Texto == TextoInverso)
+            {
+                return "es un palindromo";
+            }
+            else
+            {
+                return "NO es un palindromo";
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Logica;
 
 namespace Presentación
@@ -31,16 +32,13 @@ namespace Presentación
                 {
                     Console.SetCursorPosition(12, 17); Console.WriteLine("Digito invalido");
                 }else {
-                    if (Opt == 'N')
-                    {
-                        Console.SetCursorPosition(12, 17); Console.Write("                    ");
-                    }
+                    Console.SetCursorPosition(12, 17); Console.Write("                    ");
                     List.Add(Num);
                 }
                 Console.SetCursorPosition(35, 15); Console.Write("      ");
                 Console.SetCursorPosition(32, 7); Console.Write("      ");
 
-            } while (Opt == 'S' || Opt != 'N');
+            } while (Opt != 'N');
 
 
             Console.SetCursorPosition(5, 9); Console.WriteLine("Lista de numeros digitada: ");
@@ -52,7 +50,6 @@ namespace Presentación
             }
 
             Console.SetCursorPosition(5, 13); Console.WriteLine(Logica.LogicaListaOrdenada(List));
-
             Console.ReadKey();
 
         }
@@ -80,19 +77,118 @@ namespace Presentación
                 }
                 else
                 {
-                    if (Opt == 'S')
-                    {
-                        Console.SetCursorPosition(12, 17); Console.Write("                    ");
-                        break;
-                    }
+                    Console.SetCursorPosition(12, 17); Console.Write("                    ");
                 }
                 Console.SetCursorPosition(31, 15); Console.Write("      ");
-                Console.SetCursorPosition(32, 7); Console.Write("              ");
+                Console.SetCursorPosition(34, 7); Console.Write("              ");
                 Console.SetCursorPosition(29, 8); Console.Write("              ");
 
-            } while(Opt == 'N' && Opt != 'S');
+            } while(Opt != 'S');
 
             Console.SetCursorPosition(5, 13); Console.WriteLine(Logica.LogicaAutentificacionUsuario(Name,Password));
+            Console.ReadKey();
+        }
+
+        public void RaizCuadrada()
+        {
+            double Num;
+            char Opt;
+
+            Console.Clear();
+            do
+            {
+                Console.SetCursorPosition(10, 5); Console.WriteLine(" --- Calcular raiz cuadrada (No librerias) --- ");
+                Console.SetCursorPosition(5, 7); Console.Write("Ingrese numero a calcular: ");
+                Num = double.Parse(Console.ReadLine());
+
+                Console.SetCursorPosition(10, 15); Console.Write("¿Esta seguro? (S/N): ");
+                Opt = char.ToUpper(char.Parse(Console.ReadLine()));
+
+                if ((Opt != 'S' && Opt != 'N') || (Num <= 0))
+                {
+                    Console.SetCursorPosition(12, 17); Console.WriteLine("Digito invalido");
+                }
+                else
+                {
+                    Console.SetCursorPosition(12, 17); Console.Write("                    ");
+                }
+                Console.SetCursorPosition(30, 15); Console.Write("            ");
+                Console.SetCursorPosition(31, 7); Console.Write("              ");
+            } while (Opt != 'S' || Num <= 0);
+
+            Console.SetCursorPosition(5, 13); Console.WriteLine($"La raiz cuadrada calculada del numero digitado es: {Logica.LogicaRaizCuadrada(Num)}");
+            Console.ReadKey();
+
+        }
+
+        public void PiedraPapelTijeras()
+        {
+            char Opt;
+            String[] Opciones = { "Piedra", "Papel", "Tijeras" };
+            int Respuesta;
+
+            Console.Clear();
+            do
+            {
+                Console.SetCursorPosition(10, 5); Console.WriteLine(" --- Piedra, papel o tijeras --- ");
+                Console.SetCursorPosition(3, 7); Console.WriteLine("1. Piedra");
+                Console.SetCursorPosition(3, 8); Console.WriteLine("2. Papel");
+                Console.SetCursorPosition(3, 9); Console.WriteLine("3. Tijeras");
+                Console.SetCursorPosition(5, 10); Console.Write("Elija su opción (Entre piedra, papel o tijeras): ");
+                Respuesta = int.Parse(Console.ReadLine());
+
+                Console.SetCursorPosition(10, 13); Console.Write("¿Esta seguro? (S/N): ");
+                Opt = char.ToUpper(char.Parse(Console.ReadLine()));
+
+                if ((Opt != 'S' && Opt != 'N') || (Respuesta < 1 || Respuesta > 3))
+                {
+                    Console.SetCursorPosition(12, 17); Console.WriteLine("Digito invalido");
+                }
+                else
+                {
+                    Console.SetCursorPosition(12, 17); Console.Write("                    ");
+                }
+                Console.SetCursorPosition(30, 13); Console.Write("            ");
+                Console.SetCursorPosition(53, 10); Console.Write("              ");
+            } while ((Opt != 'S') || (Respuesta < 1 || Respuesta > 3));
+
+            var (Resultado, OpcionMaquina) = Logica.LogicaPiedraPapelTijeras(Respuesta - 1);
+
+            Console.SetCursorPosition(5, 15); Console.WriteLine("Opción seleccionada: " + Opciones[Respuesta - 1]);
+            Console.SetCursorPosition(5, 16); Console.WriteLine("Opción seleccionada por la maquina: " + OpcionMaquina);
+            Console.SetCursorPosition(5, 18); Console.WriteLine("Los resultados son: " + Resultado);
+            Console.ReadKey();
+        }
+
+        public void Palindromo()
+        {
+            String Texto, Resultado;
+            char Opt;
+
+
+            Console.Clear();
+            do
+            {
+                Console.SetCursorPosition(10, 5); Console.WriteLine(" --- ¿Palabra palindroma o no palindroma? --- ");
+                Console.SetCursorPosition(5, 7); Console.Write("Escriba la palabra a procesar: ");
+                Texto = Console.ReadLine();
+
+                Console.SetCursorPosition(10, 15); Console.Write("¿Esta seguro? (S/N): ");
+                Opt = char.ToUpper(char.Parse(Console.ReadLine()));
+
+                if (Opt != 'S' && Opt != 'N') 
+                {
+                    Console.SetCursorPosition(12, 17); Console.WriteLine("Digito invalido");
+                }
+                else
+                {
+                    Console.SetCursorPosition(12, 17); Console.Write("                    ");
+                }
+                Console.SetCursorPosition(30, 15); Console.Write("            ");
+                Console.SetCursorPosition(36, 7); Console.Write("                     ");
+            } while (Opt != 'S') ;
+            Resultado = Logica.LogicaPalindromo(Texto);
+            Console.SetCursorPosition(5, 13); Console.WriteLine($"La palabra digitada: {Texto} " + Resultado);
             Console.ReadKey();
         }
     }
