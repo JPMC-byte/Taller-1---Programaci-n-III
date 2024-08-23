@@ -10,6 +10,8 @@ namespace Presentación
     {
         static void Main(string[] args)
         {
+            Menus menus = new Menus();
+            menus.MainMenu();
         }
     }
 }

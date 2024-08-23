@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    public class BasicExercises
+    public class Program
     {
-        
+        static void Main(string[] args)
+        {
+        }
     }
 }
