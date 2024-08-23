@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentación", "Presentaci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{5A8F7225-4C0F-43BB-83E4-A92737FF753C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{DCDA2398-E63F-458B-B247-A329AD9C65C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5A8F7225-4C0F-43BB-83E4-A92737FF753C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A8F7225-4C0F-43BB-83E4-A92737FF753C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A8F7225-4C0F-43BB-83E4-A92737FF753C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDA2398-E63F-458B-B247-A329AD9C65C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDA2398-E63F-458B-B247-A329AD9C65C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDA2398-E63F-458B-B247-A329AD9C65C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDA2398-E63F-458B-B247-A329AD9C65C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
