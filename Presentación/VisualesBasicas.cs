@@ -10,7 +10,7 @@ namespace Presentación
 {
     internal class VisualesBasicas
     {
-        Logica.EjerciciosBasicos Logica = new EjerciciosBasicos();
+        EjerciciosBasicos Logica = new EjerciciosBasicos();
         public void ListaOrdenada()
         {
             List<int> List = new List<int>();
@@ -116,7 +116,7 @@ namespace Presentación
                 Console.SetCursorPosition(31, 7); Console.Write("              ");
             } while (Opt != 'S' || Num <= 0);
 
-            Console.SetCursorPosition(5, 13); Console.WriteLine($"La raiz cuadrada calculada del numero digitado es: {Logica.LogicaRaizCuadrada(Num)}");
+            Console.SetCursorPosition(5, 13); Console.WriteLine($"La raiz cuadrada de { Num } es: {Logica.LogicaRaizCuadrada(Num)}");
             Console.ReadKey();
 
         }
@@ -165,7 +165,6 @@ namespace Presentación
             String Texto, Resultado;
             char Opt;
 
-
             Console.Clear();
             do
             {
@@ -190,6 +189,100 @@ namespace Presentación
             Resultado = Logica.LogicaPalindromo(Texto);
             Console.SetCursorPosition(5, 13); Console.WriteLine($"La palabra digitada: {Texto} " + Resultado);
             Console.ReadKey();
+        }
+
+        public void ListaNoDuplicada()
+        {
+            List<int> List = new List<int>();
+            List<int> ListNoDuplicados = new List<int>();
+            char Opt;
+            int Num, X = 3;
+
+            Console.Clear();
+
+            do
+            {
+                Console.SetCursorPosition(10, 5); Console.WriteLine(" --- Lista no duplicada --- ");
+                Console.SetCursorPosition(5, 7); Console.Write("Ingrese numeros a la lista: ");
+                Num = int.Parse(Console.ReadLine());
+
+                Console.SetCursorPosition(10, 16); Console.Write("¿Desea continuar? (S/N): ");
+                Opt = char.ToUpper(char.Parse(Console.ReadLine()));
+
+                if (Opt != 'S' && Opt != 'N')
+                {
+                    Console.SetCursorPosition(12, 17); Console.WriteLine("Digito invalido");
+                }
+                else
+                {
+                    Console.SetCursorPosition(12, 17); Console.Write("                    ");
+                    List.Add(Num);
+                }
+                Console.SetCursorPosition(35, 16); Console.Write("      ");
+                Console.SetCursorPosition(32, 7); Console.Write("      ");
+
+            } while (Opt != 'N');
+
+
+            Console.SetCursorPosition(5, 9); Console.WriteLine("Lista de numeros digitada: ");
+
+            for (int i = 0; i < List.Count; i++)
+            {
+                Console.SetCursorPosition(X, 11); Console.Write(List[i]);
+                X += 3;
+            }
+
+            ListNoDuplicados = Logica.LogicaListaNoDuplicada(List);
+            X = 3;
+
+            Console.SetCursorPosition(5, 13); Console.WriteLine("Lista de numeros sin duplicados: ");
+
+            for (int i = 0; i < ListNoDuplicados.Count; i++)
+            {
+                Console.SetCursorPosition(X, 15); Console.Write(ListNoDuplicados[i]);
+                X += 3;
+            }
+            Console.ReadKey();
+        }
+
+        public void ListaDoble()
+        {
+            var (Lista1, Lista2, ListaNueva) = Logica.LogicaListaDoble();
+            int X = 3;
+
+            Console.Clear();
+
+            Console.SetCursorPosition(10, 5); Console.WriteLine(" --- Dos lista separadas combinadas en una lista --- ");
+
+            Console.SetCursorPosition(5, 7); Console.WriteLine("Lista N°1 de numeros: ");
+
+            for (int i = 0; i < Lista1.Count; i++)
+            {
+                Console.SetCursorPosition(X, 9); Console.Write(Lista1[i]);
+                X += 3;
+            }
+
+            X = 3;
+
+            Console.SetCursorPosition(5, 11); Console.WriteLine("Lista N°2 de numeros: ");
+
+            for (int i = 0; i < Lista2.Count; i++)
+            {
+                Console.SetCursorPosition(X, 13); Console.Write(Lista2[i]);
+                X += 3;
+            }
+
+            X = 3;
+            Console.SetCursorPosition(5, 15); Console.WriteLine("Listas combinada: ");
+
+            for (int i = 0; i < ListaNueva.Count; i++)
+            {
+                Console.SetCursorPosition(X, 17); Console.Write(ListaNueva[i]);
+                X += 3;
+            }
+
+            Console.ReadKey();
+
         }
     }
 

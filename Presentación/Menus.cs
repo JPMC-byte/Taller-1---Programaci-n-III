@@ -28,7 +28,7 @@ namespace Presentación
                 switch (Opt)
                 {
                     case 1: MenuBasico(); break;
-                    case 2: break;
+                    case 2: MenuIntermedio(); break;
                     case 3: break;
                     case 4: Opt = 0; break;
                 }
@@ -49,8 +49,10 @@ namespace Presentación
                 Console.SetCursorPosition(5, 9); Console.WriteLine("3. Raiz cuadrada (No librerias)");
                 Console.SetCursorPosition(5, 10); Console.WriteLine("4. Piedra, papel o tijera");
                 Console.SetCursorPosition(5, 11); Console.WriteLine("5. Palabra palindromo");
-                Console.SetCursorPosition(5, 12); Console.WriteLine("0. Volver al menu anterior");
-                Console.Write("Seleccione su opción: ");
+                Console.SetCursorPosition(5, 12); Console.WriteLine("6. Lista no duplicada");
+                Console.SetCursorPosition(5, 13); Console.WriteLine("7. Lista combinada");
+                Console.SetCursorPosition(5, 14); Console.WriteLine("0. Volver al menu anterior");
+                Console.SetCursorPosition(5, 16); Console.Write("Seleccione su opción: ");
                 Opt = int.Parse(Console.ReadLine());
                 switch (Opt)
                 {
@@ -59,6 +61,35 @@ namespace Presentación
                     case 3: visualesBasicas.RaizCuadrada(); break;
                     case 4: visualesBasicas.PiedraPapelTijeras(); break;
                     case 5: visualesBasicas.Palindromo(); break;
+                    case 6: visualesBasicas.ListaNoDuplicada(); break;
+                    case 7: visualesBasicas.ListaDoble(); break;
+                    case 0: Opt = 0; break;
+                }
+            } while (Opt != 0);
+        }
+
+        public void MenuIntermedio()
+        {
+
+            int Opt;
+            VisualesIntermedias visualesIntermedias = new VisualesIntermedias();
+            do
+            {
+                Console.Clear();
+                Console.SetCursorPosition(10, 5); Console.WriteLine(" --- Ejercicios Intermedios ---");
+                Console.SetCursorPosition(5, 7); Console.WriteLine("1. Todas las permutaciones posibles ");
+                Console.SetCursorPosition(5, 8); Console.WriteLine("2. Autentificación de usuario ");
+                Console.SetCursorPosition(5, 9); Console.WriteLine("3. Raiz cuadrada (No librerias)");
+                Console.SetCursorPosition(5, 10); Console.WriteLine("4. Piedra, papel o tijera");
+                Console.SetCursorPosition(5, 11); Console.WriteLine("5. Palabra palindromo");
+                Console.SetCursorPosition(5, 12); Console.WriteLine("6. Lista no duplicada");
+                Console.SetCursorPosition(5, 13); Console.WriteLine("7. Lista combinada");
+                Console.SetCursorPosition(5, 14); Console.WriteLine("0. Volver al menu anterior");
+                Console.SetCursorPosition(5, 16); Console.Write("Seleccione su opción: ");
+                Opt = int.Parse(Console.ReadLine());
+                switch (Opt)
+                {
+                    case 1: visualesIntermedias.PermutacionesPosibles(); break;
                     case 0: Opt = 0; break;
                 }
             } while (Opt != 0);

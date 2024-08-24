@@ -20,5 +20,13 @@ namespace Persistencia
             return usuarios.Any(u => u.usuario == usuario && u.contraseña == contraseña);
         }
 
+        public (List<int>, List<int>) PersistenciaListaDoble()
+        {
+            List<int> Lista1 = new List<int> { 0, 2, 4, 6, 8, 10, 12, 14, 16 };
+            List<int> Lista2 = new List<int> { 1, 3, 5, 7, 9, 11 };
+
+            return (Lista1, Lista2);
+        }
+
     }
 }

@@ -10,6 +10,7 @@ namespace Logica
 {
     public class EjerciciosBasicos
     {
+        PersistenciaBasica PersistenciaBasica = new PersistenciaBasica();
         public String LogicaListaOrdenada(List<int> List)
         {
             bool Asc = true, Desc = true;
@@ -42,8 +43,8 @@ namespace Logica
 
         public String LogicaAutentificacionUsuario(String Usuario, String Contraseña)
         {
-            PersistenciaBasica persistenciaUsuario = new PersistenciaBasica();
-            bool Sesion = persistenciaUsuario.PersistenciaUsuario(Usuario,Contraseña);
+            
+            bool Sesion = PersistenciaBasica.PersistenciaUsuario(Usuario,Contraseña);
 
 
             if (Sesion)
@@ -105,6 +106,7 @@ namespace Logica
         public String LogicaPalindromo(String Texto)
         {
             String TextoInverso;
+
             Texto.ToLower().Trim();
             char[] Caracteres = Texto.ToCharArray();
             Array.Reverse(Caracteres);
@@ -120,5 +122,42 @@ namespace Logica
             }
         }
 
+        public List<int> LogicaListaNoDuplicada(List<int> Lista)
+        {
+            List<int> listaSinDuplicados = new List<int>();
+
+            foreach (int i in Lista)
+            {
+                if (!listaSinDuplicados.Contains(i)) 
+                {
+                    listaSinDuplicados.Add(i);
+                }
+            }
+            return listaSinDuplicados;
+        }
+
+        public (List<int>, List<int>, List<int>) LogicaListaDoble()
+        {
+            int i = 0, j = 0;
+            var (Lista1, Lista2) = PersistenciaBasica.PersistenciaListaDoble();
+            List<int> NuevaLista = new List<int>();
+
+            while (i < Lista1.Count || j < Lista2.Count)
+            {
+                if (i < Lista1.Count)
+                {
+                    NuevaLista.Add(Lista1[i]);
+                    i++;
+                }
+
+                if (j < Lista2.Count)
+                {
+                    NuevaLista.Add(Lista2[j]);
+                    j++;
+                }
+            }
+
+            return (Lista1, Lista2, NuevaLista);
+        }
     }
 }
